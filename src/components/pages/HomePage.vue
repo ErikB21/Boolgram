@@ -1,7 +1,8 @@
 <template>
     <div class="container m-auto pt-5 mt-3 eb_stories d-flex justify-content-center">
         <div class="d-flex flex-column align-items-center justify-content-center">
-            <div class="eb_story border d-flex align-items-center">
+            <div class="eb_story border d-flex flex-column align-items-center">
+                <LoadProgress v-if="loadProgress"/>
                 <ul class="mb-lg-0 d-flex align-items-center justify-content-center p-0">
                     <StoriesSection v-for="story in storyList" :key="story.id" :story="story"/> 
                 </ul>
@@ -48,14 +49,16 @@ import ProfilesSection from '../ProfilesSection.vue'
 import StoriesSection from '../StoriesSection.vue';
 import axios from 'axios';
 import PostsSection from '../PostsSection.vue';
+import LoadProgress from '../LoadProgress.vue';
 export default {
-  components: { StoriesSection, ProfilesSection, PostsSection },
+  components: { StoriesSection, ProfilesSection, PostsSection, LoadProgress },
     name: 'HomePage',
     data(){
         return{
             profileList: [],
             storyList:[],
             commentList: [],
+            loadProgress: true,
             apiPost: 'https://flynn.boolean.careers/exercises/api/boolgram/posts',
             apiStory: 'https://flynn.boolean.careers/exercises/api/boolgram/profiles'
         }
@@ -72,9 +75,11 @@ export default {
                 this.profileList = response.data;
                 this.commentList = this.profileList;
                 console.log(this.profileList);
+                this.loadProgress = false;
             })
             .catch((err) =>{
                 console.log(err);
+                this.loadProgress = false;
             })
         },
         getStory(){
@@ -83,9 +88,11 @@ export default {
                 console.log(response);
                 this.storyList = response.data;
                 console.log(this.storyList);
+                this.loadProgress = false;
             })
             .catch((err) =>{
                 console.log(err);
+                this.loadProgress = false;
             })
         },
         

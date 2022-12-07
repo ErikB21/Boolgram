@@ -52,11 +52,14 @@
             </div>
         </div> 
         <div v-else class="bg-light post__comment px-3 pt-5 border mt-3">
-            <div class="mb-2 py-3 ps-3 d-flex align-items-center justify-content-between">
-                <input type="text" @keyup.enter="addComment()" v-model="newComment" id="list1" style="width:450px" class="border-0 py-3 rounded-5 px-2" placeholder="New Comment">
-                <button @click.prevent="addComment()" class="btn eb_bg py-2 rounded-3 px-3">
-                    <i class="fa-solid fa-comment fa-2x"></i>
-                </button>
+            <div class="mb-2 py-3 ps-3">
+                <label class="pb-2 text-secondary fs-5" for="list1">Puoi essere il primo a commentare</label>
+                <div class="d-flex align-items-center justify-content-between">
+                    <input type="text" @keyup.enter="addComment()" v-model="newComment" id="list1" style="width:450px" class="border-0 py-3 rounded-5 px-2" placeholder="New Comment">
+                    <button @click.prevent="addComment()" class="btn btn-primary py-2 rounded-3 px-3">
+                        <i class="fa-solid fa-comment-dots fa-2x"></i>
+                    </button>
+                </div>
             </div>
         </div>         
     </div>
@@ -73,7 +76,7 @@ export default {
             newComment: '',
             profiles: this.profile.comments,
             profilesLike: this.profile.likes,
-            sending: false
+            sending: false,
         }
     },
     methods:{
