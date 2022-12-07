@@ -3,7 +3,7 @@
         <div class="d-flex flex-column align-items-center justify-content-center">
             <div class="eb_story border d-flex align-items-center">
                 <ul class="mb-lg-0 d-flex align-items-center justify-content-center p-0">
-                    <StoriesSection v-for="profile in profileList" :key="profile.id" :profile="profile"/> 
+                    <StoriesSection v-for="story in storyList" :key="story.id" :story="story"/> 
                 </ul>
             </div>
             <div class="eb_posts d-flex flex-column justify-content-center">
@@ -54,19 +54,33 @@ export default {
     data(){
         return{
             profileList: [],
-            api: 'https://flynn.boolean.careers/exercises/api/boolgram/posts'
+            storyList:[],
+            apiPost: 'https://flynn.boolean.careers/exercises/api/boolgram/posts',
+            apiStory: 'https://flynn.boolean.careers/exercises/api/boolgram/profiles'
         }
     },
     mounted(){
         this.getProfile();
+        this.getStory();
     },
     methods:{
         getProfile(){
-            axios.get(this.api)
+            axios.get(this.apiPost)
             .then((response) =>{
                 console.log(response);
                 this.profileList = response.data;
                 console.log(this.profileList);
+            })
+            .catch((err) =>{
+                console.log(err);
+            })
+        },
+        getStory(){
+            axios.get(this.apiStory)
+            .then((response) =>{
+                console.log(response);
+                this.storyList = response.data;
+                console.log(this.storyList);
             })
             .catch((err) =>{
                 console.log(err);

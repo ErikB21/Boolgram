@@ -1,7 +1,7 @@
 <template>
     <li class="nav-item px-2 list-unstyled">
         <a class="navbar-brand eb_rounded" href="#">
-            <img :src="profile.profile_picture" alt="Profile">
+            <img :src="story.profile_picture" alt="Profile">
         </a>
     </li>
 </template>
@@ -10,7 +10,7 @@
 export default {
     name: 'StoriesSection',
     props:{
-        profile: Object
+        story: Object
     }
 }
 </script>
