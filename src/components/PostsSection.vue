@@ -1,5 +1,5 @@
 <template>
-    <div class="post border">
+    <div class="post border d-flex flex-column">
         <div class="post__header">
             <div class="d-flex">                    
                 <a class="post-meta__icon navbar-brand me-2">
