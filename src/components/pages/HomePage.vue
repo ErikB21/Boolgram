@@ -55,6 +55,7 @@ export default {
         return{
             profileList: [],
             storyList:[],
+            commentList: [],
             apiPost: 'https://flynn.boolean.careers/exercises/api/boolgram/posts',
             apiStory: 'https://flynn.boolean.careers/exercises/api/boolgram/profiles'
         }
@@ -69,6 +70,7 @@ export default {
             .then((response) =>{
                 console.log(response);
                 this.profileList = response.data;
+                this.commentList = this.profileList;
                 console.log(this.profileList);
             })
             .catch((err) =>{
