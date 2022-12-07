@@ -34,11 +34,11 @@
 
 
         <section class="row stories mt-5 pt-5 mb-5 pb-5 justify-content-center">
-            <div v-for="(n,index) in 9" :key="index" class="col-1 d-flex flex-column align-items-center">
+            <div v-for="(album ,index) in albums" :key="index" class="col-1 d-flex flex-column align-items-center">
                 <a href="" class="eb_round">
                     <img :src="`https://source.unsplash.com/random/300x300?sig=${index + 1}`" alt="">
                 </a>
-                <span>Landscape</span>
+                <span>{{album}}</span>
             </div>
         </section>
 
@@ -54,7 +54,12 @@
 
 <script>
 export default {
-    name:'ProfilePage'
+    name:'ProfilePage',
+    data(){
+        return{
+            albums:['Casa', 'Lavoro', 'Amici', 'Animali', 'Viaggi', 'Natura', 'Auto', 'Sport']
+        }
+    }
 }
 </script>
 
