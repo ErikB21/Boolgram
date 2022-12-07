@@ -1,11 +1,11 @@
 <template>
     <div>
-        <button @click.prevent="showOffcanvasMenu()" class="btn" data-bs-toggle="offcanvas" data-bs-target="#rightOffcanvas" aria-controls="rightOffcanvas">
+        <button @click.prevent="showOffcanvasMenu()" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#rightOffcanvas" aria-expanded="false" aria-controls="rightOffcanvas">
             <span class="navbar-toggler-icon"></span>
         </button>
 
 
-        <div class="offcanvas offcanvas-end" :class="showMenu ? 'show' : ''" :style="{ visibility: showMenu ? 'visible' : 'hidden' }" style="height:500px" tabindex="-1" id="rightOffcanvas" aria-labelledby="rightOffcanvasLabel">
+        <div v-if="showMenu" class="offcanvas offcanvas-end" :class="showMenu ? 'show' : ''" :style="{ visibility: showMenu ? 'visible' : 'hidden' }" style="height:500px;width: 50%;" tabindex="-1" id="rightOffcanvas" aria-labelledby="rightOffcanvasLabel">
             <div class="offcanvas-header">
                 <button class="btn btn-close text-reset" @click.prevent="showOffcanvasMenu()" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
@@ -23,7 +23,7 @@
                 </ul>
                 <ul class="d-flex list-unstyled flex-column">
                     <li class="py-3">
-                        <a class="d-flex align-items-center text-decoration-none" href=""><i class="fa-solid fa-user fa-2x pe-2"></i> Profilo</a>
+                        <router-link :to="{name: 'profile'}" class="d-flex align-items-center text-decoration-none"><i class="fa-solid fa-user fa-2x pe-2"></i> Profilo</router-link>
                     </li>
                     <li class="py-3">
                         <a class="d-flex align-items-center text-decoration-none" href=""><i class="fa-solid fa-users fa-2x pe-2"></i> Amici</a>
