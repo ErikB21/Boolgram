@@ -19,15 +19,18 @@
         </div>
 
         <div class="post__footer">
-            <div class="likes js-likes">
+            <div class="likes js-likes d-flex align-items-center">
                 <div class="likes__cta">
-                    <a class="like-button  js-like-button" href="#" data-postid="1">
-                        <i class="like-button__icon fas fa-thumbs-up pe-1 fa-2x" aria-hidden="true"></i>
+                    <a class="like-button  js-like-button d-flex" href="#" data-postid="1">
+                        <i class="like-button__icon fa-solid fa-thumbs-up pe-2 fa-2x" aria-hidden="true"></i>
                         <span class="like-button__label fs-5">Mi Piace</span>
                     </a>
                 </div>
                 <div class="likes__counter fs-5">
-                    Piace a <b id="like-counter-1" class="js-likes-counter">80</b> persone
+                    Piace a <b id="like-counter-1" class="js-likes-counter">{{lengthObject(profile.likes)}}</b> persone
+                </div>
+                <div class="fs-5">
+                    <b class="fw-bold">{{lengthObject(profile.comments)}}</b> Commenti
                 </div>
             </div> 
         </div>            
@@ -46,6 +49,11 @@ export default {
             let posts = date.substr(0,10);
             return posts.split('-').reverse().join('/');
         },
+
+        lengthObject(n){
+            let leOb = n.length;
+            return leOb;
+        }
     }
 }
 </script>
